@@ -1,0 +1,704 @@
+@charset "UTF-8";
+/*
+ Theme Name:  Fleurs d'orangers et chats errants - Oscars Short
+ Theme URI: 
+ Author: Studio Koukaki
+ Author URI: https://www.koukaki.local
+ Template: foce
+ Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
+ Version: 0.1
+ */
+:root {
+  --rotate: 10s;
+  --cloudPos: 0;
+}
+
+/*.burger-menu */
+/* Estilo para el contenedor del menú de navegación */
+#site-navigation {
+  position: relative;
+  /* Estilo para mostrar el menú principal en dispositivos pequeños */
+}
+#site-navigation.main-navigation.toggled ul.nav-menu {
+  display: flex;
+}
+
+/* Estilo para el menú de hamburguesa */
+.burger .line.open {
+  display: none;
+}
+.burger .closeCross {
+  display: none;
+  font-family: "Roboto Mono", monospace;
+  font-size: 3rem;
+}
+.burger .closeCross.open {
+  display: block;
+}
+.burger .burger-menu {
+  position: relative;
+  width: 100%;
+  height: 91vh;
+  background: #FFF5E9;
+  font-size: 3em;
+  display: none;
+}
+.burger .burger-menu.active {
+  display: block;
+}
+.burger .burger-menu li > a {
+  color: #000000; /* Cambiar el color del texto del enlace */
+  font-weight: bold; /* Hacer el texto en negrita */
+  margin-top: 4rem;
+}
+.burger .burger-menu li > a:hover {
+  filter: drop-shadow(0px 0px 5px #ff5c00);
+  -webkit-filter: drop-shadow(0px 0px 5px #ff5c00);
+  -moz-filter: drop-shadow(0px 0px 5px #ff5c00);
+}
+.burger .burger-menu-logo {
+  width: 154px;
+  height: 95px;
+  margin-top: 18px;
+}
+
+.active-cat li a:hover {
+  filter: drop-shadow(0px 0px 5px #ff5c00);
+  -webkit-filter: drop-shadow(0px 0px 5px #ff5c00);
+  -moz-filter: drop-shadow(0px 0px 5px #ff5c00);
+}
+
+/*images nav----------------------*/
+.story #characters div {
+  flex: none;
+  flex-shrink: 0;
+}
+
+.burger-menu::after {
+  content: url("../assets/images/orchid.png");
+  position: absolute;
+  left: -4em;
+  top: 3em;
+  transform: scale(0.9);
+  animation: fleur var(--rotate) linear infinite;
+  -webkit-animation: fleur var(--rotate) linear infinite;
+}
+
+.burger-menu-story::after {
+  content: url("../assets/images/Sunflower.png");
+  position: absolute;
+  right: 19rem;
+  bottom: 0em;
+  animation: fleur var(--rotate) linear infinite;
+  -webkit-animation: fleur var(--rotate) linear infinite;
+}
+
+.burger-menu-story::before {
+  content: url("../assets/images/catBlue.png");
+  position: absolute;
+  right: 70em;
+  bottom: -3em;
+  margin-top: 3rem;
+  animation: float 7s 100ms infinite ease-in-out;
+}
+
+.burger-menu-place::after {
+  content: url("../assets/images/flower.png");
+  position: absolute;
+  right: 80em;
+  top: -1em;
+  transform: scale(0.5);
+  animation: fleur var(--rotate) linear infinite;
+  -webkit-animation: fleur var(--rotate) linear infinite;
+}
+
+.burger-menu-character::after {
+  content: url("../assets/images/random_flower.png");
+  position: absolute;
+  left: 95em;
+  top: -2em;
+  transform: scale(0.3);
+  animation: fleur var(--rotate) linear infinite;
+  -webkit-animation: fleur var(--rotate) linear infinite;
+}
+
+.burger-menu-footer::after {
+  content: url("../assets/images/hibiscus_footer.png");
+  position: absolute;
+  left: 500px;
+  bottom: -23.5em;
+  animation: fleur var(--rotate) linear infinite;
+  -webkit-animation: fleur var(--rotate) linear infinite;
+}
+
+.burger-menu-footer::before {
+  content: url("../assets/images/catYellow.png");
+  position: absolute;
+  right: 30em;
+  bottom: 0;
+  animation: float 5s 300ms infinite ease-in-out;
+}
+
+.burger-menu-place::before {
+  content: url("../assets/images/catGrey.png");
+  position: absolute;
+  left: -20em;
+  top: -4em;
+  right: -80rem;
+  animation: float 6s 200ms infinite ease-in-out;
+}
+
+/*images nav----------------------*/
+/*-----------closecross------*/
+.closeCross {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 100%;
+  font-weight: 300;
+  font-size: 3rem;
+}
+.closeCross::before, .closeCross::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+}
+.closeCross::before {
+  transform: translateY(-50%) rotate(45deg);
+}
+.closeCross::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+/*-----------fin closecross------*/
+/* Estilo para el contenedor del botón de hamburguesa */
+.burger {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.4rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.burger h2,
+.burger li > a {
+  font-size: 3.1rem;
+}
+.burger h2 .burger-menu ul,
+.burger li > a .burger-menu ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 300px;
+  gap: 1em;
+}
+
+/* Estilo para la lista dentro del menú de hamburguesa */
+.burger-menu ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 300px;
+  gap: 1em;
+}
+
+/* Estilo para el pie del menú de hamburguesa */
+.burger-menu-footer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40px;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+/* Estilo para el botón de cerrar el menú */
+.burger-close-modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  gap: 8px;
+  width: 40px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  right: 3em;
+  cursor: pointer;
+}
+
+/* Estilo para las líneas del botón de cerrar el menú */
+.burger-close-modal .line {
+  height: 2px;
+  background-color: #000;
+  display: block;
+  width: 100%;
+  margin: 0;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+.burger-close-modal .line .burger-close-modal.close .line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-close-modal.close .line:first-child {
+  transform: rotate(45deg) translate3d(8px, 6px, 0);
+  -webkit-transform: rotate(45deg) translate3d(8px, 6px, 0);
+  -moz-transform: rotate(45deg) translate3d(8px, 6px, 0);
+  -ms-transform: rotate(45deg) translate3d(8px, 6px, 0);
+  -o-transform: rotate(45deg) translate3d(8px, 6px, 0);
+}
+.burger-close-modal.close .line:first-child .burger-close-modal.close span.line:last-child {
+  transform: rotate(-45deg) translate3d(8px, -6px, 0);
+  -webkit-transform: rotate(-45deg) translate3d(8px, -6px, 0);
+  -moz-transform: rotate(-45deg) translate3d(8px, -6px, 0);
+  -ms-transform: rotate(-45deg) translate3d(8px, -6px, 0);
+  -o-transform: rotate(-45deg) translate3d(8px, -6px, 0);
+}
+.burger-close-modal.close .line:first-child .burger-menu .line {
+  height: 2px;
+  background-color: #000;
+  display: block;
+  width: 100%;
+  margin: 0;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+/* Media queries para dispositivos de diferentes tamaños */
+@media screen and (min-width: 620px) and (max-width: 900px) {
+  .main-navigation {
+    height: 80px;
+  }
+  #menu {
+    padding-top: 50px;
+    height: 164vh;
+  }
+  #menu img {
+    display: none;
+  }
+}
+@media screen and (max-width: 620px) {
+  .main-navigation {
+    height: 80px;
+  }
+  #menu {
+    padding-top: 50px;
+    height: 164vh;
+  }
+  #menu img {
+    display: none;
+  }
+  #menu li {
+    font-size: 32px;
+    line-height: normal;
+  }
+  #menu .menu-burger-footer {
+    bottom: 585px;
+    left: 39%;
+  }
+}
+/*fin de menu -----*/
+/*-----banner video*/
+.banner {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /*------animation css ----*/
+  opacity: 0;
+  animation: moveDownContainer 2s forwards;
+}
+.banner video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+@media (min-width: 769px) {
+  .banner {
+    background: none;
+  }
+}
+@media (max-width: 768px) {
+  .banner {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .banner video {
+    display: none;
+  }
+}
+/*-----fin banner video*/
+/*---animation banner ,  logo ---*/
+.banner img {
+  position: relative;
+  display: block;
+  /*Posiciónfinal*/
+  bottom: 0px;
+  animation: moveUp 3s;
+  -webkit-animation: moveUp 3s;
+}
+
+@keyframes moveUp {
+  from {
+    bottom: -300px; /* Posición inicial más abajo */
+  }
+  to {
+    bottom: 0px; /* Posición final */
+  }
+}
+@keyframes moveDownContainer {
+  from {
+    top: -200px; /* Mueve el contenedor hacia arriba */
+    opacity: 0; /* Opacidad inicial */
+  }
+  to {
+    top: 0; /* Posición inicial */
+    opacity: 1; /* Opacidad final */
+  }
+}
+/*------------------------------------------fin de animation logo --*/
+/*------------------animation l'histoire fleur --*/
+.story__article::after,
+.elemento-con-animacion::after,
+.site-footer ul::after,
+.story h2::after,
+.section-oscars::before,
+.section-oscars::after,
+#studio h2::before,
+#studio h2::after {
+  animation: fleur var(--rotate) linear infinite;
+  -webkit-animation: fleur var(--rotate) linear infinite;
+}
+
+.section_move {
+  animation: up-fade 1s ease;
+  -webkit-animation: up-fade 1s ease;
+  animation-delay: 500ms;
+}
+
+.title_section {
+  display: flex;
+  justify-content: center;
+}
+.title_section .title_move_first {
+  margin-right: 10px;
+}
+.title_section .title_move_scnd {
+  animation: up-fade 1s ease;
+  -webkit-animation: up-fade 1s ease;
+  animation-delay: 150ms;
+}
+
+@keyframes up-fade {
+  0% {
+    opacity: 0;
+    transform: translate(0, 100px);
+    -webkit-transform: translate(0, 100px);
+    -moz-transform: translate(0, 100px);
+    -ms-transform: translate(0, 100px);
+    -o-transform: translate(0, 100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+  }
+}
+@keyframes fleur {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+.story__article::before, .story,
+.story #characters,
+.studio-A span, #studio,
+.site-footer, .section-oscars {
+  opacity: 0;
+  animation: moveUp 3s forwards;
+  -webkit-animation: moveUp 3s forwards;
+  /* Definimos la animación moveUp */
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+    -moz-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    -o-transform: translateY(100px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.story h2::after {
+  position: absolute;
+  left: 0.7em;
+  top: 6em;
+  width: 154px;
+  height: 154px;
+}
+
+/*
+#characters h3,
+.story #place h3,
+#studio h2 {
+  opacity: 0;
+  transform: translateY(20px);
+  position: relative;
+  transition: opacity 2s ease, transform 2s ease;
+  -webkit-transition: opacity 2s ease, transform 2s ease;
+  -moz-transition: opacity 2s ease, transform 2s ease;
+  -ms-transition: opacity 2s ease, transform 2s ease;
+  -o-transition: opacity 2s ease, transform 2s ease;
+}*/
+#characters h3.active,
+.story #place h3.active,
+#studio h2.active {
+  opacity: 1;
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+}
+
+/*-----------sniper----------*/
+.story #characters {
+  display: block;
+  margin-left: auto;
+  background-size: cover;
+  margin-right: 0;
+  align-items: center;
+}
+.story #characters h3 {
+  justify-content: left;
+  background-position: left !important;
+  text-align: left;
+  padding-left: 50px;
+}
+.story #characters div {
+  flex: none;
+}
+.story #characters div .swiper-slide {
+  flex-shrink: 0;
+  width: 30% !important;
+  overflow: hidden;
+}
+.story #characters div .swiper-slide figure {
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+.story #characters div .swiper-slide figure img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.story #characters div .swiper-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+/*------DEBUT L'histoire-----*/
+.animated-text {
+  display: inline-block;
+  position: relative;
+  animation: slideFromBottom 2s forwards;
+  -webkit-animation: slideFromBottom 2s forwards;
+}
+
+.animated-text-2 {
+  position: relative;
+  bottom: -100px;
+  animation: slideFromBottom 4s forwards;
+  -webkit-animation: slideFromBottom 4s forwards;
+}
+
+@keyframes slideFromBottom {
+  0% {
+    bottom: -100px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+/*-----lieu------------*/
+.story #place {
+  display: flex;
+  background-image: url("../assets/images/Studio Koukaki-image lieu 1.png");
+  width: 100%;
+  min-height: 699px;
+  position: relative;
+}
+.story #place::before, .story #place::after {
+  content: "";
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 400px;
+  opacity: 0.5;
+  z-index: 1;
+  overflow: hidden;
+  transform: translateX(var(--cloudPos));
+  -webkit-transform: translateX(var(--cloudPos));
+  -moz-transform: translateX(var(--cloudPos));
+  -ms-transform: translateX(var(--cloudPos));
+  -o-transform: translateX(var(--cloudPos));
+}
+.story #place::before {
+  margin-top: 5rem;
+  width: 800px;
+  /*Anchodelaimagen*/
+  height: 143px;
+  background-image: url("../assets/images/little_cloud.png");
+  right: 50px;
+  top: 30%;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+.story #place::after {
+  width: 600px;
+  height: 143px;
+  background-image: url("../assets/images/big_cloud.png");
+  /*imageshaut--*/
+  top: 12%;
+  right: 20px;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+/*----.section-oscars------*/
+.section-oscars {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin: 0 auto; /* Ajusta el margen para centrar horizontalmente */
+}
+.section-oscars h3 {
+  background-image: url("../assets/images/backgroundh3.png");
+  background-size: 100%;
+  text-align: left;
+  padding: 100px 84px;
+}
+.section-oscars img {
+  margin-top: 100px;
+  height: 129px;
+}
+
+@media screen and (max-width: 870px) {
+  .section-oscars {
+    flex-direction: column;
+    align-items: center;
+  }
+  .section-oscars img {
+    width: 278px;
+    margin-top: 0px;
+  }
+  .section-oscars h3 {
+    font-size: 2em;
+  }
+}
+.section-oscars::before {
+  content: url(../assets/images/Sunflower.png);
+  position: absolute;
+  left: 10em;
+  top: -3em;
+}
+
+.section-oscars::after {
+  content: url(../assets/images/orchid.png);
+  position: absolute;
+  right: -5em;
+  bottom: 22em;
+  overflow: hidden;
+}
+
+.site-footer::before, .site-footer::after {
+  display: none;
+}
+
+@media screen and (min-width: 870px) and (max-width: 1000px) {
+  .section-oscars h3 {
+    font-size: 2em;
+  }
+}
+/*----fin section-oscars------*/
+/* Pour faire flotter les éléments */
+@keyframes float {
+  0% {
+    transform: translate3d(6px, 6px, 0);
+  }
+  12% {
+    transform: translate3d(0px, 6px, 0);
+  }
+  24% {
+    transform: translate3d(6px, -4px, 0);
+  }
+  36% {
+    transform: translate3d(6px, 0px, 0);
+  }
+  48% {
+    transform: translate3d(-4px, -6px, 0);
+  }
+  60% {
+    transform: translate3d(0px, -4px, 0);
+  }
+  72% {
+    transform: translate3d(-8px, 6px, 0);
+  }
+  84% {
+    transform: translate3d(-4px, 0px, 0);
+  }
+  100% {
+    transform: translate3d(6px, 6px, 0);
+  }
+}/*# sourceMappingURL=theme.css.map */
